@@ -1,0 +1,358 @@
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .tool-nav-link:active:not(.is-active),
+  .secondary-button:active,
+  .quick-row button:active,
+  .tap-actions button:active {
+    border-color: var(--accent-line);
+    background: var(--accent-soft);
+  }
+
+  .tool-card:active {
+    border-color: var(--accent-line);
+    background: var(--surface-2);
+    transform: scale(0.99);
+    box-shadow: inset 0 0 0 1px var(--accent-line);
+  }
+}
+
+@media (max-width: 1180px) {
+  .app-shell {
+    grid-template-columns: 244px minmax(0, 1fr);
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+
+  .tool-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1000px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .docs-hero,
+  .docs-field-notes {
+    grid-template-columns: 1fr;
+  }
+
+  .camelot-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .home-copy {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: 68px minmax(0, 1fr);
+    gap: var(--space-3);
+    padding: var(--space-3);
+  }
+
+  .side-panel {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    gap: var(--space-3);
+    align-items: center;
+    height: 68px;
+    padding: var(--space-2) var(--space-3);
+    overflow: hidden;
+  }
+
+  .brand-lockup {
+    width: auto;
+    padding: var(--space-1);
+  }
+
+  .brand-lockup .brand-name {
+    font-size: 1.5rem;
+  }
+
+  .creator-credit {
+    display: none;
+  }
+
+  .tool-nav {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: var(--space-1);
+  }
+
+  .tool-nav-link {
+    justify-content: center;
+    gap: var(--space-2);
+    min-width: 0;
+    padding: 0 var(--space-2);
+    font-size: var(--text-xs);
+    white-space: nowrap;
+  }
+
+  .tool-nav-link span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .social-links {
+    margin-top: 0;
+    padding: 0;
+    border-top: 0;
+  }
+
+  .social-links-list {
+    display: flex;
+    gap: var(--space-1);
+  }
+
+  .social-link {
+    width: 36px;
+    min-height: 40px;
+  }
+
+  .language-toggle {
+    min-width: 58px;
+    min-height: 40px;
+    margin-top: 0;
+    padding: 0 var(--space-2);
+  }
+
+  .home-view,
+  .tool-panel {
+    padding: var(--space-5);
+  }
+
+  .section-heading {
+    gap: var(--space-5);
+  }
+}
+
+@media (max-width: 760px) {
+  .delay-reverb-tables {
+    gap: var(--space-4);
+  }
+
+  .table-wrap {
+    min-height: max-content;
+    overflow: visible;
+  }
+
+  .table-wrap h3 {
+    padding: var(--space-4);
+  }
+
+  .table-wrap table {
+    display: block;
+    min-width: 0;
+  }
+
+  .table-wrap thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .table-wrap tbody {
+    display: grid;
+    gap: var(--space-3);
+    padding: 0 var(--space-3) var(--space-3);
+  }
+
+  .table-wrap tr {
+    display: grid;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+  }
+
+  .table-wrap tr.is-current {
+    border-color: var(--accent-line);
+    box-shadow: inset 3px 0 0 var(--accent);
+  }
+
+  .table-wrap td {
+    display: grid;
+    grid-template-columns: minmax(96px, 0.75fr) minmax(0, 1.25fr);
+    gap: var(--space-3);
+    align-items: center;
+    width: auto;
+    padding: var(--space-3);
+    border-bottom: 0;
+    overflow-wrap: anywhere;
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .table-wrap td:not(:last-child) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .table-wrap td::before {
+    content: attr(data-label);
+    color: var(--muted);
+    font-size: var(--text-2xs);
+    font-weight: var(--w-heavy);
+    letter-spacing: 0.04em;
+  }
+
+  .table-wrap td span {
+    font-size: 0.74rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    grid-template-rows: 60px minmax(0, 1fr);
+    gap: var(--space-2);
+    padding: var(--space-2);
+  }
+
+  .side-panel {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    height: 60px;
+    padding: 6px var(--space-2);
+  }
+
+  .social-links {
+    display: none;
+  }
+
+  .tool-nav-link {
+    min-height: 40px;
+    padding: 0;
+  }
+
+  .tool-nav-link span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .home-view,
+  .tool-panel {
+    padding: var(--space-4);
+  }
+
+  .home-hero,
+  .metronome-board,
+  .tap-layout,
+  .drop-zone {
+    grid-template-columns: 1fr;
+  }
+
+  .home-copy {
+    min-height: 300px;
+    padding: var(--space-5);
+  }
+
+  .section-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    gap: var(--space-3);
+  }
+
+  .control-grid,
+  .metric-grid,
+  .analysis-results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .range-block,
+  .quick-row,
+  .volume-control,
+  .result-line,
+  .key-badge {
+    grid-column: 1 / -1;
+  }
+
+  .metronome-controls > .range-block,
+  .calculator-controls > .range-block {
+    grid-column: 1 / -1;
+  }
+
+  .tool-docs {
+    margin-top: var(--space-5);
+    padding-top: var(--space-6);
+  }
+
+  .docs-hero,
+  .docs-quickstart,
+  .docs-field-notes,
+  .doc-live-card,
+  .docs-chapter {
+    padding: var(--space-4);
+  }
+
+  .docs-steps,
+  .docs-chapter-grid,
+  .docs-note-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .doc-live-values {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .docs-note-grid > div {
+    padding-left: var(--space-3);
+  }
+}
+
+@media (max-width: 520px) {
+  .table-wrap td {
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .control-grid,
+  .metric-grid,
+  .analysis-results,
+  .tool-card-grid,
+  .camelot-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-title h1,
+  .panel-title h2 {
+    font-size: 1.45rem;
+  }
+
+  .drop-zone {
+    text-align: center;
+  }
+
+  .doc-live-values {
+    grid-template-columns: 1fr;
+  }
+
+  .drop-zone svg,
+  .drop-zone button {
+    justify-self: center;
+  }
+}

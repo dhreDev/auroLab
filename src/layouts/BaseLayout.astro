@@ -1,0 +1,86 @@
+---
+import montserratFont from "@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2?url";
+import quintessentialFont from "@fontsource/quintessential/files/quintessential-latin-400-normal.woff2?url";
+import {
+  buildStructuredData,
+  formatBrowserTitle,
+  getCanonicalUrl,
+  getSeoRoute,
+  SITE,
+} from "../lib/seo.js";
+import "../styles/global.css";
+
+interface Props {
+  sectionId?: string;
+}
+
+const { sectionId = "home" } = Astro.props;
+const page = getSeoRoute(sectionId);
+const siteOrigin = Astro.site || new URL(SITE.defaultOrigin);
+const canonicalUrl = getCanonicalUrl(sectionId, siteOrigin);
+const homeUrl = new URL("/", siteOrigin);
+const socialImageUrl = new URL(SITE.socialImage.path, siteOrigin);
+const structuredData = buildStructuredData(sectionId, siteOrigin);
+const browserTitle = formatBrowserTitle(page.title);
+
+const structuredDataJson = JSON.stringify(structuredData).replace(/</g, "\\u003c");
+---
+
+<!doctype html>
+<html lang={SITE.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#030711" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="application-name" content={SITE.name} />
+    <meta name="author" content={SITE.creator.name} />
+    <meta name="description" content={page.description} />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta
+      name="googlebot"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+    <link rel="home" href={homeUrl} />
+    <link rel="author" href={SITE.creator.url} />
+    {SITE.creator.social.map((profileUrl) => <link rel="me" href={profileUrl} />)}
+    <link rel="icon" type="image/svg+xml" sizes="any" href={SITE.logoPath} />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content={SITE.locale} />
+    <meta property="og:title" content={page.title} />
+    <meta property="og:description" content={page.description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:secure_url" content={socialImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content={String(SITE.socialImage.width)} />
+    <meta property="og:image:height" content={String(SITE.socialImage.height)} />
+    <meta property="og:image:alt" content={SITE.socialImage.alt} />
+    {SITE.creator.social.map((profileUrl) => <meta property="og:see_also" content={profileUrl} />)}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={SITE.twitterHandle} />
+    <meta name="twitter:creator" content={SITE.twitterHandle} />
+    <meta name="twitter:title" content={page.title} />
+    <meta name="twitter:description" content={page.description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content={SITE.socialImage.alt} />
+
+    <link rel="preload" href={montserratFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={quintessentialFont} as="font" type="font/woff2" crossorigin />
+    <script is:inline type="application/ld+json" set:html={structuredDataJson} />
+    <title>{browserTitle}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

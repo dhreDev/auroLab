@@ -1,0 +1,18 @@
+---
+import AuroLabApp from "../components/app/AuroLabApp.jsx";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { INDEXABLE_ROUTES } from "../lib/seo.js";
+
+export function getStaticPaths() {
+  return INDEXABLE_ROUTES.filter((route) => route.sectionId !== "home").map((route) => ({
+    params: { tool: route.slug },
+    props: { sectionId: route.sectionId },
+  }));
+}
+
+const { sectionId } = Astro.props;
+---
+
+<BaseLayout sectionId={sectionId}>
+  <AuroLabApp initialSection={sectionId} client:load />
+</BaseLayout>
