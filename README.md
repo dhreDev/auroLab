@@ -103,21 +103,21 @@ formato JSON-LD. Las mismas definiciones alimentan `robots.txt` y el sitemap XML
 
 ```text
 auroLab/
-├── public/                         # Logo y manifiesto de la aplicación web
+├── public/                         Logo y manifiesto de la aplicación web
 ├── src/
 │   ├── components/
-│   │   ├── app/                    # Aplicación raíz de React
-│   │   ├── layout/                 # Navegación y estructura persistente
-│   │   └── ui/                     # Controles reutilizables de interfaz
-│   ├── config/                     # Configuración de navegación
-│   ├── features/                   # Un módulo independiente por herramienta
-│   ├── hooks/                      # Navegación, idioma y capacidades del navegador
-│   ├── layouts/                    # Documento Astro, metadatos y JSON-LD
-│   ├── lib/                        # Matemática musical, análisis, textos, guías y SEO
-│   ├── pages/                      # Rutas estáticas, robots.txt y sitemap
-│   └── styles/                     # Capas ordenadas de CSS
-├── tests/                          # Pruebas de matemática, análisis y traducciones
-├── AGENTS.md                       # Convenciones de desarrollo del repositorio
+│   │   ├── app/                    Aplicación raíz de React
+│   │   ├── layout/                 Navegación y estructura persistente
+│   │   └── ui/                     Controles reutilizables de interfaz
+│   ├── config/                     Configuración de navegación
+│   ├── features/                   Un módulo independiente por herramienta
+│   ├── hooks/                      Navegación, idioma y capacidades del navegador
+│   ├── layouts/                    Documento Astro, metadatos y JSON-LD
+│   ├── lib/                        Matemática musical, análisis, textos, guías y SEO
+│   ├── pages/                      Rutas estáticas, robots.txt y sitemap
+│   └── styles/                     Capas ordenadas de CSS
+├── tests/                          Pruebas de matemática, análisis y traducciones
+├── AGENTS.md                       Convenciones de desarrollo del repositorio
 ├── astro.config.mjs
 ├── package.json
 └── tsconfig.json
@@ -180,7 +180,7 @@ documentación integrada al español desde la barra lateral. La preferencia se g
 Después de revisar las traducciones afectadas, actualiza `SPANISH_SOURCE_FINGERPRINT` en
 `src/lib/translationCoverage.js` con el valor SHA-256 indicado por la prueba de traducciones.
 
-## Autor
+## Contacto
 
 - Nombre: Luis Melita Cruces.
 - Correo: dhreian@gmail.com.
